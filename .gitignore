@@ -1,0 +1,12 @@
+## PROJECT::GENERAL
+log
+tmp
+node_modules
+npm-debug.log
+
+## ECLIPSE
+.project
+.settings
+.externalToolBuilders
+
+## PROJECT::SPECIFIC

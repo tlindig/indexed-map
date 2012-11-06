@@ -1,0 +1,26 @@
+{
+	"name": "LinkedMap"
+,	"version": "0.0.1"
+,	"description": "A map that maintains the order of entries. Give acces to entries by index or key."
+,	"keywords": [
+		"list", "map", "array", "collection", "doubly-linked"
+	,	"linkedmap", "sorted", "ordered", "indexed"
+	]
+,	"author": "Tobias Lindig <dev@tlindig.de>"
+,	"contributors": [
+	{ "name": "Tobias Lindig", "email": "dev@tlindig.de" }
+]
+,	"repository":{
+		"type": "git"
+	,	"url": "https://github.com/tlindig/linkedMap.git"
+	}
+,	"main": "index"
+,	"engines": { "node": ">= 0.8.x" }
+,	"scripts": {
+		"test": "mocha test/"
+	}
+,	"devDependencies": {
+		"mocha": "1.x"
+	,	"chai" : "1.x"
+	}
+}
