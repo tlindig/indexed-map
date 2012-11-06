@@ -4,25 +4,25 @@ A map that maintains the order of entries. Give access to entries by index or ke
 
 ## Install
 
-'''bash
+```bash
 npm install linkedMap --production
-'''
+```
 
 ## Usage
 
-'''js
+```js
 var LinkedMap = require('linkedMap')
 var myMap = LinkedMap();
 myMap.insert('key', { 'value':'value' });
-'''
+```
 
 ## Test
 
-'''bash
+```bash
 cd LinkedMapDir
 npm install .
 npm test
-'''
+```
 
 ## License
 
