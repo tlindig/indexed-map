@@ -2,6 +2,11 @@
 
 A map that maintains the order of entries. Give access to entries by index or key.
 
+```
+Stability: 1 Experimental
+```
+(Stability Index: http://nodejs.org/api/documentation.html#documentation_stability_index)
+
 ## Install
 
 ```bash
@@ -11,10 +16,21 @@ npm install linkedMap --production
 ## Usage
 
 ```js
-var LinkedMap = require('linkedMap')
+var LinkedMap = require('linked-map')
 var myMap = LinkedMap();
-myMap.insert('key', { 'value':'value' });
+myMap.insert('myKey', { myProperty:'My Value' });
 ```
+
+Key based function have a index based pendant with sufix 'At':
+
+get( key:string ) and getAt( index:number )
+set( key:string, value:any ) and setAt( index:number, value:any )
+insert( key:string, value:any ) and insertAt( index:number, value:any )
+move( key:string, targetKey:string ) and moveAt( index:number, targetIndex:number )
+remove( key:string ) and removeAt( index:number )
+
+
+
 
 ## Test
 
