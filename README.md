@@ -10,7 +10,7 @@ Stability: 1 Experimental
 ## Install
 
 ```bash
-npm install linkedMap --production
+npm install linked-map --production
 ```
 
 ## Usage
@@ -35,7 +35,7 @@ remove( key:string ) and removeAt( index:number )
 ## Test
 
 ```bash
-cd LinkedMapDir
+cd <LinkedMapDir>
 npm install .
 npm test
 ```
