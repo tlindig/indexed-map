@@ -1,6 +1,6 @@
 {
 	"name": "linked-map"
-,	"version": "0.0.1"
+,	"version": "0.0.2"
 ,	"description": "A map that maintains the order of entries. Give acces to entries by index or key."
 ,	"keywords": [
 		"list", "map", "array", "collection", "doubly-linked"
