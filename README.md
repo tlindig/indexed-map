@@ -1,6 +1,6 @@
 # LinkedMap
 
-A map that maintains the order of entries. Give access to entries by index or key.
+A map that maintains the order of entries. Give access to entries by index or key. Keys have to be unique in map.
 
 ```
 Stability: 1 Experimental
@@ -21,14 +21,54 @@ var myMap = LinkedMap();
 myMap.insert('myKey', { myProperty:'My Value' });
 ```
 
-Key based function have a index based pendant with sufix 'At':
+### Constructor
 
-get( key:string ) and getAt( index:number )
-set( key:string, value:any ) and setAt( index:number, value:any )
-insert( key:string, value:any ) and insertAt( index:number, value:any )
-move( key:string, targetKey:string ) and moveAt( index:number, targetIndex:number )
-remove( key:string ) and removeAt( index:number )
+* `var myMap = LinkedMap();`
+* `var myMap = new LinkedMap();`
 
+Keyword `new` is optinal, it will be called by LinkeMap it self, if necessary. 
+
+### methods
+
+* `length()`
+* `keys()`
+* `sort(callback)`
+* `revers()`
+* `find(callback)`
+* `each(callback)`
+
+### _key_ based methods:
+
+* `indexOf(key:string)`
+* `get( key:string )` 
+* `set( key:string, value:any )`
+* `insert( key:string, value:any )` 
+* `move( key:string, targetKey:string )`
+* `remove( key:string )` 
+* `has(key:string)`
+ 
+### _index_ based pendant with sufix 'At':
+
+* `keyAt( index:number )`
+* `getAt( index:number )`
+* `setAt( index:number, value:any )`
+* `insertAt( index:number, value:any )`
+* `moveAt( index:number, targetIndex:number )`
+* `removeAt( index:number )`
+
+### _key_ returning methods:
+
+* `first()`
+* `last()`
+* `next(key:string)`
+* `prev(key:string)`
+
+### _value_ returning methods (prefix 'get'):
+
+* `getFirst()`
+* `getLast()`
+* `getNext(key:string)`
+* `getPrev(key:string)`
 
 
 
