@@ -32,22 +32,128 @@ describe('test API of class LinkedMap', function () {
 
 });
 
-describe('test .length', function () {
-	var mapA = LinkedMap();
-	var mapB = LinkedMap();
+describe('test methods length, insert and insertAt', function () {
 
-	it('.length should return 0 for empty map', function () {
-		expect( mapA.length() ).to.be.equal(0);
-		expect( mapB.length() ).to.be.equal(0);
-	});
+	describe('.length()', function () {
+		var mapA = LinkedMap();
+		var mapB = LinkedMap();
 
-	it('//add entry to mapA', function () {
-		expect( mapA.insert('keyA', {} ) ).not.to.be.null;
+		it('.length should return 0 for empty map', function () {
+			expect( mapA.length() ).to.be.equal(0);
+			expect( mapB.length() ).to.be.equal(0);
+		});
+	
+		it('//add entry to mapA', function () {
+			expect( mapA.insert('keyA', {} ) ).not.to.be["null"];// replace '.null' to avoid syntax error message
+		});
+		
+		it('.length should return 1 for mapA and 0 for mapB', function () {
+			expect( mapA.length() ).to.be.equal(1);
+			expect( mapB.length() ).to.be.equal(0);
+		});
 	});
 	
-	it('.length should return 1 for mapA and 0 for mapB', function () {
-		expect( mapA.length() ).to.be.equal(1);
-		expect( mapB.length() ).to.be.equal(0);
+	describe('.insert()', function () {
+		var map = LinkedMap();
+
+		it('.insert new entry "keyA"', function () {
+			expect( map.insert('keyA', { value: 'valueA' }) ).not.to.be.equal(null);
+		});
+
+		it('.insert new entry "keyB" at position "keyA" ', function () {
+			expect( map.insert('keyB', { value: 'valueB' }, 'keyA') ).not.to.be.equal(null);
+		});
+
+		it('try to .insert again a entry with key "keyB" at position "keyA" (Error test)', function () {
+			expect( map.insert('keyB', { value: 'valueB' }, 'keyA') ).to.be.equal(null);
+		});
 	});
 
+	describe('.insertAt()', function () {
+		var map = LinkedMap();
+
+		it('.insert new entry "keyA"', function () {
+			expect( map.insertAt('keyA', { value: 'valueA' }) ).not.to.be.equal(null);
+		});
+
+		it('.insert new entry "keyB" at position 0 ', function () {
+			expect( map.insertAt('keyB', { value: 'valueB' }, 0) ).not.to.be.equal(null);
+		});
+
+		it('try to .insert again a entry with key "keyB" at position 0 (Error test)', function () {
+			expect( map.insertAt('keyB', { value: 'valueB' }, 0) ).to.be.equal(null);
+		});
+	});
+});
+
+ describe('tests on filled map', function () {
+	var map = LinkedMap();
+	map.insertAt('keyA', { value: 'valueA' });
+	map.insertAt('keyB', { value: 'valueB' });
+	map.insertAt('keyC', { value: 'valueC' });
+	map.insertAt('keyD', { value: 'valueD' });
+
+	it(".get('keyA') should return valueA", function () {
+		expect( map.get('keyA') ).to.deep.equal({ value: 'valueA' });
+	});
+	it(".getKeyAt(0) should return keyA", function () {
+		expect( map.getKeyAt(0) ).to.be.equal('keyA');
+	});
+	it(".getAt(0) should return valueA", function () {
+		expect( map.getAt(0) ).to.deep.equal({ value: 'valueA' });
+	});
+	it(".indexOf('keyA') should return 0", function () {
+		expect( map.indexOf('keyA') ).to.be.equal(0);
+	});
+
+	it(".first() should return keyA", function () {
+		expect( map.first() ).to.be.equal('keyA');
+	});
+	it(".last() should return keyD", function () {
+		expect( map.last() ).to.be.equal('keyD');
+	});
+
+	it(".getFirst() should return valueA", function () {
+		expect( map.getFirst() ).to.deep.equal({ value: 'valueA' });
+	});
+	it(".getLast() should return valueD", function () {
+		expect( map.getLast() ).to.deep.equal({ value: 'valueD' });
+	});
+
+
+	it(".next('keyB') should return keyC", function () {
+		expect( map.next('keyB') ).to.be.equal('keyC');
+	});
+	it(".getNext('keyB') should return valueC", function () {
+		expect( map.getNext('keyB') ).to.deep.equal({ value: 'valueC' });
+	});
+
+	it(".prev('keyB') should return keyA", function () {
+		expect( map.prev('keyB') ).to.be.equal('keyA');
+	});
+	it(".getPrev('keyB') should return valueA", function () {
+		expect( map.getPrev('keyB') ).to.deep.equal({ value: 'valueA' });
+	});
+
+	//TODO
+	// move
+	// set
+	// remove
+	// sort
+	// revers
+	
+	it('.find(callback)', function () {
+	
+		var findCallback = function(key, value) {
+			return value.value === 'valueC';
+		};
+	
+		it('.find value:"valueC"', function () {
+			expect( map.find(findCallback) ).to.be.equal('keyC');
+		});
+	
+		it('.find value:"valueC", start at 3 (Error test)', function () {
+			expect( map.find(findCallback), 1 ).to.be.equal(null);
+		});
+	});
 });
