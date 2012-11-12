@@ -93,17 +93,18 @@ describe('test methods length, insert and insertAt', function () {
 	map.insertAt('keyC', { value: 'valueC' });
 	map.insertAt('keyD', { value: 'valueD' });
 
+	it(".indexOf('keyA') should return 0", function () {
+		expect( map.indexOf('keyA') ).to.be.equal(0);
+	});
+	it(".keyAt(0) should return keyA", function () {
+		expect( map.keyAt(0) ).to.be.equal('keyA');
+	});
+
 	it(".get('keyA') should return valueA", function () {
 		expect( map.get('keyA') ).to.deep.equal({ value: 'valueA' });
 	});
-	it(".getKeyAt(0) should return keyA", function () {
-		expect( map.getKeyAt(0) ).to.be.equal('keyA');
-	});
 	it(".getAt(0) should return valueA", function () {
 		expect( map.getAt(0) ).to.deep.equal({ value: 'valueA' });
-	});
-	it(".indexOf('keyA') should return 0", function () {
-		expect( map.indexOf('keyA') ).to.be.equal(0);
 	});
 
 	it(".first() should return keyA", function () {
@@ -149,7 +150,7 @@ describe('test methods length, insert and insertAt', function () {
 		};
 	
 		it('.find value:"valueC"', function () {
-			expect( map.find(findCallback) ).to.be.equal('keyC');
+			expect( map.find(findCallback) ).to.deep.equal({ value: 'valueC' });
 		});
 	
 		it('.find value:"valueC", start at 3 (Error test)', function () {
