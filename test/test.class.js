@@ -58,14 +58,17 @@ describe('test methods length, insert and insertAt', function () {
 
 		it('.insert new entry "keyA"', function () {
 			expect( map.insert('keyA', { value: 'valueA' }) ).not.to.be.equal(null);
+			expect( map.length() ).to.be.equal(1);
 		});
 
 		it('.insert new entry "keyB" at position "keyA" ', function () {
 			expect( map.insert('keyB', { value: 'valueB' }, 'keyA') ).not.to.be.equal(null);
+			expect( map.length() ).to.be.equal(2);
 		});
 
 		it('try to .insert again a entry with key "keyB" at position "keyA" (Error test)', function () {
 			expect( map.insert('keyB', { value: 'valueB' }, 'keyA') ).to.be.equal(null);
+			expect( map.length() ).to.be.equal(2);
 		});
 	});
 
@@ -74,14 +77,17 @@ describe('test methods length, insert and insertAt', function () {
 
 		it('.insert new entry "keyA"', function () {
 			expect( map.insertAt('keyA', { value: 'valueA' }) ).not.to.be.equal(null);
+			expect( map.length() ).to.be.equal(1);
 		});
 
 		it('.insert new entry "keyB" at position 0 ', function () {
 			expect( map.insertAt('keyB', { value: 'valueB' }, 0) ).not.to.be.equal(null);
+			expect( map.length() ).to.be.equal(2);
 		});
 
 		it('try to .insert again a entry with key "keyB" at position 0 (Error test)', function () {
 			expect( map.insertAt('keyB', { value: 'valueB' }, 0) ).to.be.equal(null);
+			expect( map.length() ).to.be.equal(2);
 		});
 	});
 });
