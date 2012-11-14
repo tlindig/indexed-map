@@ -149,7 +149,7 @@ describe('test methods length, insert and insertAt', function () {
 	// sort
 	// revers
 	
-	it('.find(callback)', function () {
+	describe('.find(callback)', function () {
 	
 		var findCallback = function(key, value) {
 			return value.value === 'valueC';
@@ -158,9 +158,13 @@ describe('test methods length, insert and insertAt', function () {
 		it('.find value:"valueC"', function () {
 			expect( map.find(findCallback) ).to.deep.equal({ value: 'valueC' });
 		});
-	
+
+		it('.find value:"valueC", start at 1 (Error test)', function () {
+			expect( map.find(findCallback, 1) ).to.deep.equal({ value: 'valueC' });
+		});
+		
 		it('.find value:"valueC", start at 3 (Error test)', function () {
-			expect( map.find(findCallback), 1 ).to.be.equal(null);
+			expect( map.find(findCallback, 3) ).to.be.equal(null);
 		});
 	});
 });
