@@ -6,12 +6,12 @@ describe('test API of class LinkedMap', function () {
 	
 	it('Constructor (with new) should creat an empty LinkedMap instance.', function () {
 		mapA =  new LinkedMap();
-		expect( mapA ).to.be.exist;
+		return expect( mapA ).to.be.exist; //use "return" to suppresses jshint warning "Expected an assignment ..."
 	});
 
 	it('Constructor (without new) should creat an empty LinkedMap instance.', function () {
 		mapA =  LinkedMap();
-		expect( mapA ).to.be.exist;
+		return expect( mapA ).to.be.exist; //use "return" to suppresses jshint warning "Expected an assignment ..."
 	});
 
 	it('.length should expose a function', function () {
@@ -44,7 +44,9 @@ describe('test methods length, insert and insertAt', function () {
 		});
 	
 		it('//add entry to mapA', function () {
-			expect( mapA.insert('keyA', {} ) ).not.to.be["null"];// replace '.null' to avoid syntax error message
+			return expect( mapA.insert('keyA', {} ) ).not.to.be["null"];
+			// replace '.null' to avoid syntax error message
+			 //use "return" to suppresses jshint warning "Expected an assignment ..."
 		});
 		
 		it('.length should return 1 for mapA and 0 for mapB', function () {
@@ -142,6 +144,16 @@ describe('test methods length, insert and insertAt', function () {
 		expect( map.getPrev('keyB') ).to.deep.equal({ value: 'valueA' });
 	});
 
+	it(".move('keyA', 'keyC'), new index of keyA should be old index of keyC-1 ", function () {
+		var oldIndexA = map.indexOf('keyA');
+		var oldIndexC = map.indexOf('keyC');
+
+		expect( oldIndexA ).not.to.be.equal( oldIndexC );
+		
+		map.move('keyA', 'keyC');
+		expect( map.indexOf('keyA') ).to.be.equal( oldIndexC-1 );
+	});
+	
 	//TODO
 	// move
 	// set
