@@ -1,10 +1,10 @@
 {
-	"name": "linked-map"
-,	"version": "0.0.6"
-,	"description": "A map that maintains the order of entries. Give acces to entries by index or key."
+	"name": "indexed-map"
+,	"version": "0.0.7"
+,	"description": "A map that maintains the order of entries. Give access to entries by index or key."
 ,	"keywords": [
 		"list", "map", "array", "collection", "doubly-linked"
-	,	"linkedmap", "sorted", "ordered", "indexed"
+	,	"linkedmap", "sorted", "ordered", "indexed", "vector"
 	]
 ,	"author": "Tobias Lindig <dev@tlindig.de>"
 ,	"contributors": [
@@ -12,7 +12,7 @@
 ]
 ,	"repository":{
 		"type": "git"
-	,	"url": "https://github.com/tlindig/linkedMap.git"
+	,	"url": "https://github.com/tlindig/indexed-map.git"
 	}
 ,	"main": "index"
 ,	"engines": { "node": ">= 0.8.x" }

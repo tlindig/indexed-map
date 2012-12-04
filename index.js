@@ -1,5 +1,5 @@
 
-exports = module.exports = require('./lib/linkedMap.js');
+exports = module.exports = require('./lib/indexedMap.js');
 
 /**
  * static property version

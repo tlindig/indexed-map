@@ -1,4 +1,4 @@
-# LinkedMap
+# IndexedMap
 
 A map that maintains the order of entries. Give access to entries by index or key. Keys have to be unique in map.
 
@@ -10,23 +10,23 @@ Stability: 1 Experimental
 ## Install
 
 ```bash
-npm install linked-map --production
+npm install indexed-map --production
 ```
 
 ## Usage
 
 ```js
-var LinkedMap = require('linked-map')
-var myMap = LinkedMap();
+var IndexedMap = require('indexed-map')
+var myMap = IndexedMap();
 myMap.insert('myKey', { myProperty:'My Value' });
 ```
 
 ### Constructor
 
-* `var myMap = LinkedMap();`
-* `var myMap = new LinkedMap();`
+* `var myMap = IndexedMap();`
+* `var myMap = new IndexedMap();`
 
-Keyword `new` is optinal, it will be called by LinkeMap it self, if necessary. 
+Keyword `new` is optinal, it will be called by IndexedMap it self, if necessary. 
 
 ### methods
 
@@ -75,7 +75,7 @@ Keyword `new` is optinal, it will be called by LinkeMap it self, if necessary.
 ## Test
 
 ```bash
-cd <LinkedMapDir>
+cd <IndexedMapDir>
 npm install .
 npm test
 ```

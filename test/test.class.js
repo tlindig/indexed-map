@@ -1,16 +1,16 @@
-var LinkedMap = require('../');
+var IndexedMap = require('../');
 
-describe('test API of class LinkedMap', function () {
+describe('test API of class IndexedMap', function () {
 
 	var mapA;
 	
-	it('Constructor (with new) should creat an empty LinkedMap instance.', function () {
-		mapA =  new LinkedMap();
+	it('Constructor (with new) should creat an empty IndexedMap instance.', function () {
+		mapA =  new IndexedMap();
 		return expect( mapA ).to.be.exist; //use "return" to suppresses jshint warning "Expected an assignment ..."
 	});
 
-	it('Constructor (without new) should creat an empty LinkedMap instance.', function () {
-		mapA =  LinkedMap();
+	it('Constructor (without new) should creat an empty IndexedMap instance.', function () {
+		mapA =  IndexedMap();
 		return expect( mapA ).to.be.exist; //use "return" to suppresses jshint warning "Expected an assignment ..."
 	});
 
@@ -35,8 +35,8 @@ describe('test API of class LinkedMap', function () {
 describe('test methods length, insert and insertAt', function () {
 
 	describe('.length()', function () {
-		var mapA = LinkedMap();
-		var mapB = LinkedMap();
+		var mapA = IndexedMap();
+		var mapB = IndexedMap();
 
 		it('.length should return 0 for empty map', function () {
 			expect( mapA.length() ).to.be.equal(0);
@@ -56,7 +56,7 @@ describe('test methods length, insert and insertAt', function () {
 	});
 	
 	describe('.insert()', function () {
-		var map = LinkedMap();
+		var map = IndexedMap();
 
 		it('.insert new entry "keyA"', function () {
 			expect( map.insert('keyA', { value: 'valueA' }) ).not.to.be.equal(null);
@@ -75,7 +75,7 @@ describe('test methods length, insert and insertAt', function () {
 	});
 
 	describe('.insertAt()', function () {
-		var map = LinkedMap();
+		var map = IndexedMap();
 
 		it('.insert new entry "keyA"', function () {
 			expect( map.insertAt('keyA', { value: 'valueA' }) ).not.to.be.equal(null);
@@ -95,7 +95,7 @@ describe('test methods length, insert and insertAt', function () {
 });
 
  describe('tests on filled map', function () {
-	var map = LinkedMap();
+	var map = IndexedMap();
 	map.insertAt('keyA', { value: 'valueA' });
 	map.insertAt('keyB', { value: 'valueB' });
 	map.insertAt('keyC', { value: 'valueC' });
@@ -154,8 +154,7 @@ describe('test methods length, insert and insertAt', function () {
 		expect( map.indexOf('keyA') ).to.be.equal( oldIndexC-1 );
 	});
 	
-	//TODO
-	// move
+	//TODO:
 	// set
 	// remove
 	// sort
