@@ -1,26 +1,36 @@
 {
-	"name": "indexed-map"
-,	"version": "0.0.7"
-,	"description": "A map that maintains the order of entries. Give access to entries by index or key."
-,	"keywords": [
-		"list", "map", "array", "collection", "doubly-linked"
-	,	"linkedmap", "sorted", "ordered", "indexed", "vector"
-	]
-,	"author": "Tobias Lindig <dev@tlindig.de>"
-,	"contributors": [
-	{ "name": "Tobias Lindig", "email": "dev@tlindig.de" }
-]
-,	"repository":{
-		"type": "git"
-	,	"url": "https://github.com/tlindig/indexed-map.git"
-	}
-,	"main": "index"
-,	"engines": { "node": ">= 0.8.x" }
-,	"scripts": {
+	"name": "indexed-map",
+	"version": "0.0.7",
+	"description": "A map that maintains the order of entries. Give access to entries by index or key.",
+	"keywords": [
+		"list", "map", "array", "collection", "doubly-linked",
+		"linkedmap", "sorted", "ordered", "indexed", "vector"
+	],
+	"author": {
+		"name": "Tobias Lindig",
+		"email": "dev@tlindig.de"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tlindig/indexed-map.git"
+	},
+	"bugs": {
+		"url": "https://github.com/tlindig/indexed-map/issues"
+	},
+	"licenses": [ {
+			"type": "MIT",
+			"url": "https://github.com/tlindig/indexed-map/blob/master/LICENSE-MIT"
+		}
+	],
+	"main": "index",
+	"engines": {
+		"node": ">=0.6.x"
+	},
+	"scripts": {
 		"test": "mocha test/"
-	}
-,	"devDependencies": {
-		"mocha": "1.x"
-	,	"chai" : "1.x"
+	},
+	"devDependencies": {
+		"mocha": "1.x",
+		"chai" : "1.x"
 	}
 }
