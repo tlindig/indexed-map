@@ -45,7 +45,42 @@ Keyword `new` is optional, it will be called by IndexedMap itself, if necessary.
 	The advantage of not cloning the key map is, that you can easily manipulat the order of keys, if you like.
 	So you could use the reverse or sort method of Array.
 
-### methods
+### _key_ based methods:
+
+* `insert( key:string, value:any ):value|null`
+
+	Insert new element before the referenced element targetKey.
+	If reference is null or not found, new element is inserted at the end of the list.
+	If key always used in the map, null will be returned.
+
+* `set( key:string, value:any )oldValue|null`
+
+	Overwrite the value for the given key.
+	*return* old value or null, if key not found.
+
+* `move( key:string, targetKey:string )value|null`
+* `remove( key:string ):oldValue|null` 
+* `has( key:string ):boolean`
+* `get( key:string ):value|null` 
+* `nextOf( key:string ):key|null`
+* `prevOf( key:string ):key|null`
+ 
+### _index_ based equivalent with sufix 'At':
+
+* `getAt( index:number ):value|null`
+* `setAt( index:number, value:any ):oldValue|null`
+* `insertAt( index:number, value:any ):value|null`
+* `moveAt( index:number, targetIndex:number ):value|null`
+* `removeAt( index:number ):oldValue|null`
+
+###  first, last, previous, next:
+
+* `getFirst():value|null`
+* `getLast():value|null`
+* `getPrevOf( key:string ):value|null`
+* `getNextOf( key:string ):value|null`
+
+### iterating methods
 
 * `sort(callback)`
 	sort the map, that method manipulate the indexedMap.
@@ -80,32 +115,6 @@ Keyword `new` is optional, it will be called by IndexedMap itself, if necessary.
 		position to start the run, default: 0
 
 	*returns* null
-
-### _key_ based methods:
-
-* `insert( key:string, value:any ):value|null` 
-* `set( key:string, value:any )oldValue|null`
-* `move( key:string, targetKey:string )value|null`
-* `remove( key:string ):oldValue|null` 
-* `has( key:string ):boolean`
-* `nextOf( key:string ):key|null`
-* `prevOf( key:string ):key|null`
-* `get( key:string ):value|null` 
- 
-### _index_ based equivalent with sufix 'At':
-
-* `getAt( index:number ):value|null`
-* `setAt( index:number, value:any ):oldValue|null`
-* `insertAt( index:number, value:any ):value|null`
-* `moveAt( index:number, targetIndex:number ):value|null`
-* `removeAt( index:number ):oldValue|null`
-
-###  first, last, previous, next:
-
-* `getFirst():value|null`
-* `getLast():value|null`
-* `getPrevOf( key:string ):value|null`
-* `getNextOf( key:string ):value|null`
 
 
 ## Test
