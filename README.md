@@ -1,6 +1,7 @@
 # IndexedMap
 
-A map that maintains the order of entries. Give access to entries by index or key. Keys have to be unique in map.
+A map that maintains the order of entries. Give access to entries by index or key.
+Keys have to be unique in map.
 
 ```
 Stability: 1 Experimental
@@ -18,58 +19,93 @@ npm install indexed-map --production
 ```js
 var IndexedMap = require('indexed-map')
 var myMap = IndexedMap();
+// add an entry
 myMap.insert('myKey', { myProperty:'My Value' });
 ```
+
+Keys have to be of type 'string', values can by any type, there is no restrictions.
+
 
 ### Constructor
 
 * `var myMap = IndexedMap();`
 * `var myMap = new IndexedMap();`
 
-Keyword `new` is optinal, it will be called by IndexedMap it self, if necessary. 
+Keyword `new` is optional, it will be called by IndexedMap itself, if necessary. 
+
+### properties
+
+* `length` {number} the count of entries
+
+* `keys` {Array} keys in the current order
+	
+	That is not a clone, it is the real keys array of the indexedMap. So do not 
+	add, change or remove elements. That would result in an inconsistent state of indexedMap itself.
+	
+	The advantage of not cloning the key map is, that you can easily manipulat the order of keys, if you like.
+	So you could use the reverse or sort method of Array.
 
 ### methods
 
-* `length()`
-* `keys()`
 * `sort(callback)`
-* `revers()`
+	sort the map, that method manipulate the indexedMap.
+	This function is analog to the sort function of Array.
+	if no callback is specified, keys will be sorted lexicographically
+
+	*params* callback {function(valueA, valueB ):number } - optional
+	- called in context of indexedMap
+	- compareFunction have to return _0_ for equal, _<0_ for a < b or _>0_ for a > b
+
 * `find(callback)`
+	return the first key, where callback(key, value) returned true.  
+	
+	*param* callback {function(key:string, value:object):boolean} - required
+	 - called for every entry in context of indexedMap. return true will stop the search and
+	   return the value of current entry.
+	
+	*param* startIndex {number} - optional
+		position to start the search, default: 0
+	
+	*returns* value or null
+
 * `each(callback)`
+	Visit every entry in the indexedMap. Start at given startIndex. Run until end 
+	or the given callback returns 'false'.
+
+	*param* callback {function(key:string, value:object):boolean} - required
+	- called for every entry in context of current IndexedMap. 
+	- stop loop from within the callback function by returning false.
+	
+	*param* startIndex {number} - optional
+		position to start the run, default: 0
+
+	*returns* null
 
 ### _key_ based methods:
 
-* `indexOf(key:string)`
-* `get( key:string )` 
-* `set( key:string, value:any )`
-* `insert( key:string, value:any )` 
-* `move( key:string, targetKey:string )`
-* `remove( key:string )` 
-* `has(key:string)`
+* `insert( key:string, value:any ):value|null` 
+* `set( key:string, value:any )oldValue|null`
+* `move( key:string, targetKey:string )value|null`
+* `remove( key:string ):oldValue|null` 
+* `has( key:string ):boolean`
+* `nextOf( key:string ):key|null`
+* `prevOf( key:string ):key|null`
+* `get( key:string ):value|null` 
  
-### _index_ based pendant with sufix 'At':
+### _index_ based equivalent with sufix 'At':
 
-* `keyAt( index:number )`
-* `getAt( index:number )`
-* `setAt( index:number, value:any )`
-* `insertAt( index:number, value:any )`
-* `moveAt( index:number, targetIndex:number )`
-* `removeAt( index:number )`
+* `getAt( index:number ):value|null`
+* `setAt( index:number, value:any ):oldValue|null`
+* `insertAt( index:number, value:any ):value|null`
+* `moveAt( index:number, targetIndex:number ):value|null`
+* `removeAt( index:number ):oldValue|null`
 
-### _key_ returning methods:
+###  first, last, previous, next:
 
-* `first()`
-* `last()`
-* `next(key:string)`
-* `prev(key:string)`
-
-### _value_ returning methods (prefix 'get'):
-
-* `getFirst()`
-* `getLast()`
-* `getNext(key:string)`
-* `getPrev(key:string)`
-
+* `getFirst():value|null`
+* `getLast():value|null`
+* `getPrevOf( key:string ):value|null`
+* `getNextOf( key:string ):value|null`
 
 
 ## Test
