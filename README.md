@@ -4,7 +4,7 @@ A map that maintains the order of entries. Give access to entries by index or ke
 Keys have to be unique in map.
 
 ```
-Stability: 1 Experimental
+Stability: 3 Stable
 ```
 (Stability Index: http://nodejs.org/api/documentation.html#documentation_stability_index)
 
@@ -129,7 +129,7 @@ npm test
 
 The MIT License
 
-Copyright (c) 2012 Tobias Lindig
+Copyright (c) 2012-2013 Tobias Lindig
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
