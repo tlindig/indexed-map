@@ -1,6 +1,6 @@
 {
 	"name": "indexed-map",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"description": "A map that maintains the order of entries. Give access to entries by index or key.",
 	"keywords": [
 		"list", "map", "array", "collection", "doubly-linked",

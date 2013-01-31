@@ -3,7 +3,7 @@ var IndexedMap = require('../');
 describe('test API of class IndexedMap', function () {
 
 	var mapA;
-	
+
 	it('Constructor (with new) should creat an empty IndexedMap instance.', function () {
 		mapA =  new IndexedMap();
 		return expect( mapA ).to.be.exist; //use "return" to suppresses jshint warning "Expected an assignment ..."
@@ -17,7 +17,7 @@ describe('test API of class IndexedMap', function () {
 	it('.length should expose a number', function () {
 		expect( mapA.length ).to.be.a('number');
 	});
-	
+
 	it('.keys should expose an array', function () {
 		expect( mapA.keys ).to.be.a('Array');
 	});
@@ -37,19 +37,19 @@ describe('test property length, insert and insertAt', function () {
 			expect( mapA.length ).to.be.equal(0);
 			expect( mapB.length ).to.be.equal(0);
 		});
-	
+
 		it('//add entry to mapA', function () {
 			return expect( mapA.insert('keyA', {} ) ).not.to.be["null"];
 			// replace '.null' to avoid syntax error message
-			 //use "return" to suppresses jshint warning "Expected an assignment ..."
+			//use "return" to suppresses jshint warning "Expected an assignment ..."
 		});
-		
+
 		it('.length should return 1 for mapA and 0 for mapB', function () {
 			expect( mapA.length ).to.be.equal(1);
 			expect( mapB.length ).to.be.equal(0);
 		});
 	});
-	
+
 	describe('.insert()', function () {
 		var map = IndexedMap();
 
@@ -114,15 +114,15 @@ describe('test property length, insert and insertAt', function () {
 	});
 
 
-	it(".nextOf('keyB') should return keyC", function () {
-		expect( map.nextOf('keyB') ).to.be.equal('keyC');
+	it(".nextKeyOf('keyB') should return keyC", function () {
+		expect( map.nextKeyOf('keyB') ).to.be.equal('keyC');
 	});
 	it(".getNextOf('keyB') should return valueC", function () {
 		expect( map.getNextOf('keyB') ).to.deep.equal({ value: 'valueC' });
 	});
 
-	it(".prevOf('keyB') should return keyA", function () {
-		expect( map.prevOf('keyB') ).to.be.equal('keyA');
+	it(".prevKeyOf('keyB') should return keyA", function () {
+		expect( map.prevKeyOf('keyB') ).to.be.equal('keyA');
 	});
 	it(".getPrevOf('keyB') should return valueA", function () {
 		expect( map.getPrevOf('keyB') ).to.deep.equal({ value: 'valueA' });
@@ -133,23 +133,23 @@ describe('test property length, insert and insertAt', function () {
 		var oldIndexC = map.keys.indexOf('keyC');
 
 		expect( oldIndexA ).not.to.be.equal( oldIndexC );
-		
+
 		map.move('keyA', 'keyC');
 		expect( map.keys.indexOf('keyA') ).to.be.equal( oldIndexC-1 );
 	});
-	
+
 	//TODO:
 	// set
 	// remove
 	// sort
 	// revers
-	
+
 	describe('.find(callback)', function () {
-	
+
 		var findCallback = function(key, value) {
 			return value.value === 'valueC';
 		};
-	
+
 		it('.find value:"valueC"', function () {
 			expect( map.find(findCallback) ).to.deep.equal({ value: 'valueC' });
 		});
@@ -157,7 +157,7 @@ describe('test property length, insert and insertAt', function () {
 		it('.find value:"valueC", start at 1 (Error test)', function () {
 			expect( map.find(findCallback, 1) ).to.deep.equal({ value: 'valueC' });
 		});
-		
+
 		it('.find value:"valueC", start at 3 (Error test)', function () {
 			expect( map.find(findCallback, 3) ).to.be.equal(null);
 		});
