@@ -41,7 +41,7 @@ Keyword `new` is optional, it will be called by IndexedMap itself, if necessary.
 
 * `keys` {Array} keys in the current order
 
-	That is not a clone, it is the real keys array of the indexedMap. So do not
+	It is the real keys array of the indexedMap, not a clone. So do not
 	add, change or remove elements. That would result in an inconsistent state of indexedMap itself.
 
 	The advantage of not cloning the key map is, that you can easily manipulate the order of keys, if you like.
@@ -50,41 +50,52 @@ Keyword `new` is optional, it will be called by IndexedMap itself, if necessary.
 ### has, get, insert, set, move, remove
 
 * `has( key:string ):boolean`
+
 	checks, if given key is in map.
+
 	*return* {boolean} true, if it could found otherwise false
 
 * `get( key:string ) : value|null`
 * `getAt( index:number ) : value|null`
-	*return* value for given key/index or null, if key was not found
+ 
+	*return* Value for given key/index or null, if key was not found.
 
 * `getFirst():value|null`
 * `getLast():value|null`
-	*return* value of first/last entry or null, if map is empty
+
+	*return* Value of first/last entry or null, if map is empty.
 
 * `insert( key:string, value:any ):value|null`
 * `insertAt( index:number, value:any ):value|null`
+
 	Insert new element before the referenced element targetKey.
 	If reference is null or not found, new element is inserted at the end
 	of the list.
-	*return* value for key or null if !key or key always used
+	
+	*return* Value for key or null if !key or key always used.
 
 
 * `set( key:string, value:any ) : oldValue|null`
 * `setAt( index:number, value:any ) : oldValue|null`
+	
 	Overwrite the value for the given key/index.
-	*return* old value or null, if key/index not found.
+	
+	*return* The old value or null, if key/index not found.
 
 * `move( key:string, targetKey:string ) : value|null`
 * `moveAt( index:number, targetIndex:number ) : value|null`
+	
 	Move the key to position of targetKey by inserting key before targetKey.
 	If targetKey is not found, key will be moved to the end.
-	*return* value for key or null if key was not found
+	
+	*return* Value for key or null if key was not found.
 
 * `remove( key:string ) : oldValue|null`
 * `removeAt( index:number ) : oldValue|null`
+	
 	Remove the entry for the given key.
-	*return* old value or null, if key was not found.
-
+	
+	*return* The old value or null, if key was not found.
 
 ### next, previous
 
@@ -93,45 +104,57 @@ you need to give a reference entry to the function.
 
 * `nextKeyOf( key:string ) : key|null`
 * `prevKeyOf( key:string ) : key|null`
+
 	*return* key from entry next/previous to given key or null, if key
-	has no next/previous
+	has no next/previous.
 
 * `getNextOf( key:string ) : value|null`
 * `getPrevOf( key:string ) : value|null`
-	*return* value from entry next/previous to given key or null, if key
-	has no next/previous
+	
+	*return* Value from entry next/previous to given key or null, if key
+	has no next/previous.
 
 
 ### iterating methods
 
 * `sort( [callback] )`
+	
 	Sort the map, that method manipulate the indexedMap.
 	This function is analog to the sort function of Array.
 	if no callback is specified, keys will be sorted lexicographically
+	
 	*params* callback {function(this:IndexedMap, valueA:any, valueB:any):number} - optional
 	- called in context of indexedMap
 	- compareFunction have to return _0_ for equal, _<0_ for a < b or _>0_ for a > b
-	*return* the indexedMap
+	
+	*return* The indexedMap
 
 * `find(callback [, startIndex])`
+	
 	Returns the first key, where callback function returns true.
 
 	*param* {function(this:IndexedMap, key:string, value:any):boolean} callback - required
 	- called for every entry in context of indexedMap
 	- return true will stop the search and return the value of current visited entry.
+	
 	*param* {number} startIndex - optional
-	  position to start the search, default: 0
-	*return* value of first entry found or null, if nothing found
+	Position to start the search, default is 0.
+	
+	*return* Value of first entry found or null, if nothing found
 
 * `each(callback [, startIndex])`
+
 	Iterate over the indexedMap. Start at given startIndex. Run until end
 	or the given callback returns 'false'.
+
 	*param* {function(this:IndexedMap, key:string, value:any):boolean} callback - required
 	- called for every entry in context of current IndexedMap
 	- stop loop from within the callback function by returning false
+	
 	*param* {number} startIndex - optional
 	  position to start the run, default: 0
-	*return* the indexedMap or null for error (missing callback)
+	
+	*return* Zhe indexedMap or null for error (missing callback).
 
 
 ## Test
