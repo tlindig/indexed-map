@@ -1,12 +1,11 @@
 # IndexedMap
 
-A map that maintains the order of entries. Give access to entries by index or key.
-Keys have to be unique in map.
+An enhanced map that supports easy insertion or deletion at specific position. Give access to entries by index or key. Can be used instead of a linked list.
 
 ```
-Stability: 3 Stable
+Stability: 4 - API Frozen
 ```
-(Stability Index: http://nodejs.org/api/documentation.html#documentation_stability_index)
+( see [Stability Index](http://nodejs.org/api/documentation.html#documentation_stability_index) ) 
 
 ## Install
 
@@ -23,7 +22,8 @@ var myMap = IndexedMap();
 myMap.insert('myKey', { myProperty:'My Value' });
 ```
 
-Keys have to be of type 'string', values can by any type, there is no restrictions.
+Keys have to be of type 'string' and unique in map.
+Values can by any type, there is no restrictions.
 
 Some methods supported in two versions, one with key as reference and the
 other works with index as reference (has suffix 'At').

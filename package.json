@@ -1,10 +1,10 @@
 {
 	"name": "indexed-map",
-	"version": "0.0.9",
-	"description": "A map that maintains the order of entries. Give access to entries by index or key.",
+	"version": "1.0.0",
+	"description": "An enhanced map that supports easy insertion or deletion at specific position. Give access to entries by index or key. Can be used instead of a linked list.",
 	"keywords": [
-		"list", "map", "array", "collection", "doubly-linked",
-		"linkedmap", "sorted", "ordered", "indexed", "vector"
+		"linked", "list", "map", "array", "collection", "doubly-linked",
+		"linkedlist", "linkedmap", "sorted", "ordered", "indexed", "vector"
 	],
 	"author": {
 		"name": "Tobias Lindig",
