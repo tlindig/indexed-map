@@ -9,12 +9,14 @@ Stability: 4 - API Frozen
 
 ## Install
 
-as node module:
+as node module with npm:
 ```bash
 npm install indexed-map --production
 ```
 
 ## Usage
+
+Can be used as node module 'indexed-map', as AMD module 'indexed-map' or as global class at `window.IndexedMap`.
 
 ```js
 var IndexedMap = require('indexed-map');
