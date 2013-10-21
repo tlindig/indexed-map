@@ -9,6 +9,7 @@ Stability: 4 - API Frozen
 
 ## Install
 
+as node module:
 ```bash
 npm install indexed-map --production
 ```
@@ -16,7 +17,7 @@ npm install indexed-map --production
 ## Usage
 
 ```js
-var IndexedMap = require('indexed-map')
+var IndexedMap = require('indexed-map');
 var myMap = IndexedMap();
 // add an entry at the end
 myMap.insert('myKey', { myProperty:'My Value' });
