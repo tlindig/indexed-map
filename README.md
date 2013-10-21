@@ -1,4 +1,4 @@
-# IndexedMap
+# IndexedMap [![Build Status](https://travis-ci.org/tlindig/indexed-map.png?branch=master)](https://travis-ci.org/tlindig/indexed-map)
 
 An enhanced map that supports easy insertion or deletion at specific position. Give access to entries by index or key. Can be used instead of a linked list.
 
